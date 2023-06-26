@@ -17,7 +17,7 @@ void	write_number(int i)
 	int	j;
 	
 	j = 0;
-	if (j > 9)
+	if (i > 9)
 	{
 		j = (i / 10) + 48;
 		write(1, &j, 1);
