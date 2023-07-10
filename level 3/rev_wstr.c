@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 			j = i--;
 			if (argv[1][j] == ' ' && argv[1][j] == '\t')
 				j++;
-			while (argv[1][j] && argv[1][j] != ' ' && argv[1][i] != '\t')
+			while (argv[1][j] && argv[1][j] != ' ' && argv[1][j] != '\t')
 				write(1, &argv[1][j++], 1);
 			if (i > 0)
 				write(1, " ", 1);
