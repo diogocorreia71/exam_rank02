@@ -10,33 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 int	ft_atoi_base(const char *str, int str_base)
 {
-	int	i;
-	int	sign;
-	int	res;
-	int	c;
-	
-	i = 0;
-	sign = 1;
-	res = 0;
-	c = 0;
 	if (str_base < 2 || str_base > 16)
 		return (0);
-	while (str[i] == ' ' || str[i] == '\t')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	int res = 0;
+	int sign = 1;
+	while (*str == ' ' || *str == '\t')
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-			c = str[i] - '0';
-		else if (str[i] >= 'a' && str[i] <= 'f')
-			c = str[i] - 'a' + 10;
-		else if (str[i] >= 'A' && str[i] <= 'F')
-			c = str[i] - 'A' + 10;
-		else
-			return (0);
-		res = res * str_base + c;
-		i++;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	return (res * sign);
+
+	while (*str)
+	{
+		int c = 0;
+		if (*str >= '0' && *str <= '9')
+			c = *str - '0';
+		else if (*str >= 'a' && *str <= 'f')
+			c = *str - 'a' + 10;
+		else if (*str >= 'A' && *str <= 'F')
+			c = *str - 'A' + 10;
+		else
+			break;
+		if (c >= str_base)
+			break;
+		res = res * str_base + c;
+		str++;
+	}
+	return (sign * res);
 }
