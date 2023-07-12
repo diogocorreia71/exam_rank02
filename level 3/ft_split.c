@@ -1,73 +1,71 @@
 #include <stdlib.h>
 
-char	*put_word(char *str)
+int			ft_isspace(char c)
 {
-	int	i;
-	char	*res;
-
-	i = 0;
-	while (!is_space(str[i]) && str[i])
-		i++;
-	res = (char *)malloc(sizeof(char) * (i + 1));
-	if (!res)
-		return (NULL);
-	i = 0;
-	while (str[i] != '\0' && !is_space(str[i]))
-	{
-		res[i] = str[i];
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
+	return (c == ' ' || c == '\n' || c == '\t');
 }
 
-int	is_space(char c)
+int		count_words(char *str)
 {
-	if (c == ' ' || c == '\t' || c == '\n')
-		return (1);
-	return (0);
-}
+	int	count;
 
-int	count_words(char *str)
-{
-	int	res;
-
-	res = 0;
+	count = 0;
 	while (*str)
 	{
-		if (!is_space(*str))
+		// move to the beggining of a new word
+		while (*str && ft_isspace(*str))
+			str++;
+		if (*str && !ft_isspace(*str))
 		{
-			res++;
-			while (!is_space(*str) && *str)
+			count++;
+			// move to the next whitespace
+			while (*str && !ft_isspace(*str))
 				str++;
 		}
-		else
-			str++;
 	}
-	return (str);
+	return (count);
+}
+
+char	*malloc_word(char *str)
+{
+	char *word;
+	int	i;
+
+	i = 0;
+	while (str[i] && !ft_isspace(str[i]))
+		i++;
+	word = (char *)malloc(sizeof(char) * (i + 1));
+	i = 0;
+	while (str[i] && !ft_isspace(str[i]))
+	{
+		word[i] = str[i];
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
 }
 
 char	**ft_split(char *str)
 {
-	char	**words;
-	int				i;
+	char **arr = (char **)malloc(sizeof(char *) * (count_words(str) + 1));
 
-	words = (char **)malloc(sizeof(char *) * (count_words(str) + 1));
-	if (!words)
-		return (NULL);
-	i = 0;
+	// same as count_words, except we save word to array instead of counting
+	int i = 0;
 	while (*str)
 	{
-		if (!is_space(*str))
+		// move to the beggining of a new word
+		while (*str && ft_isspace(*str))
+			str++;
+		if (*str && !ft_isspace(*str))
 		{
-			words[i] = put_word(str);
+			// save word to array
+			arr[i] = malloc_word(str);
 			i++;
-			while (!is_space(*str) && *str)
+			// move to the next whitespace
+			while (*str && !ft_isspace(*str))
 				str++;
 		}
-		else
-			str++;
 	}
-	words[i] = NULL;
-	return (words);
+	arr[i] = NULL;
+	return (arr);
 }
