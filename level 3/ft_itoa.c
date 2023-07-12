@@ -1,46 +1,44 @@
 #include <stdlib.h>
 
+int	decimal_places(long n)
+{
+	int i = 0;
+	if (n <= 0)
+	{
+		i++;
+		n = -n;
+	}
+	while (n)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
+}
+
 char	*ft_itoa(int nbr)
 {
-	int		i;
-	int		len;
-	int		sign;
-	long	cpy;
-	char	*res;
-	long	copy;
-
-	i = 0;
-	len = 0;
-	sign = 0;
-	cpy = nbr;
-	copy = nbr;
-	if (cpy < 0)
-	{
-		cpy *= -1;
-		sign = 1;
-	}
-	while (cpy > 9)
-	{
-		len++;
-		cpy /= 10;
-	}
-	len++;
-	res = malloc(sizeof(char) * len + 1 + sign);
-	if (!res)
+	long n = nbr;
+	int i = decimal_places(n);
+	char *s = (char *)malloc(sizeof(char) * (i + 1));
+	if (!s)
 		return (NULL);
-	res[len + sign] = '\0';
-	if (sign == 1)
+	s[i--] = '\0';
+	if (n == 0)
 	{
-		res[0] = '-';
-		copy *= -1;
-		i++;
-		len += 1;
+		s[0] = '0';
+		return (s);
 	}
-	while (copy != 0)
+	if (n < 0)
 	{
-		len--;
-		res[len] = copy % 10 + 48,
-		copy = copy / 10;
+		s[0] = '-';
+		n = -n;
 	}
-	return (res);
+	while (n)
+	{
+		s[i] = n % 10 + '0';
+		n /= 10;
+		i--;
+	}
+	return (s);
 }
