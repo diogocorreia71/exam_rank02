@@ -23,7 +23,7 @@ size_t	ft_strcspn(const char *s, const char *reject)
 		j = 0;
 		while (reject[j])
 		{
-			if (reject[j] == s[i])
+			if (s[i] == reject[j])
 				return (i);
 			j++;
 		}
