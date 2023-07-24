@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 			n = a;
 		else
 			n = b;
-		while (n);
+		while (n)
 		{
 			if (a % n == 0 && b % n == 0)
 				return (printf("%i\n", n));
