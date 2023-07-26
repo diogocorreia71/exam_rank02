@@ -40,6 +40,8 @@ int	main(int argc, char **argv)
 				else
 					printf("%i", i);
 				n = n / i;
+				if (n > i)
+					printf("*");
 			}
 			else
 				i++;
