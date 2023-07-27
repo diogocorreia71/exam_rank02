@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 11:55:43 by diodos-s          #+#    #+#             */
-/*   Updated: 2023/06/22 12:10:18 by diodos-s         ###   ########.fr       */
+/*   Created: 2023/07/27 09:12:47 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/07/27 09:57:21 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_atoi_base(const char *str, int str_base)
 			sign = -1;
 		str++;
 	}
-
 	while (*str)
 	{
 		int c = 0;
