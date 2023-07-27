@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 10:22:28 by diodos-s          #+#    #+#             */
-/*   Updated: 2023/06/22 10:41:15 by diodos-s         ###   ########.fr       */
+/*   Created: 2023/07/27 16:41:25 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/07/27 16:51:36 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isprime(int n)
 {
-	int	i;
+	int i;
 
 	i = 2;
 	while (n > i)
@@ -28,8 +28,8 @@ int	ft_isprime(int n)
 
 int	ft_add_prime_sum(int n)
 {
-	int	res;
-	int	i;
+	int res;
+	int i;
 
 	i = 2;
 	res = 0;
@@ -44,26 +44,19 @@ int	ft_add_prime_sum(int n)
 
 void	ft_putnbr(int n)
 {
-	char	c;
-
-	if (n <= 9)
-	{
-		c = n + '0';
-		write(1, &c, 1);
-	}
-	else
-	{
+	char c;
+	
+	if (n > 9)
 		ft_putnbr(n / 10);
-		c = (n % 10) + '0';
-		write(1, &c, 1);
-	}
+	c = n % 10 + 48;
+	write(1, &c, 1);
 }
 
 int	ft_atoi(char *str)
 {
-	int	i;
-	int	res;
-	
+	int i;
+	int res;
+
 	i = 0;
 	res = 0;
 	while (str[i])
@@ -76,7 +69,7 @@ int	ft_atoi(char *str)
 int	main(int argc, char **argv)
 {
 	int	n;
-	
+
 	if (argc == 2)
 	{
 		n = ft_atoi(argv[1]);
