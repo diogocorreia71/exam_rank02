@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 09:16:56 by diodos-s          #+#    #+#             */
-/*   Updated: 2023/06/23 09:25:43 by diodos-s         ###   ########.fr       */
+/*   Created: 2023/08/01 15:33:06 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/08/01 15:42:10 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	char	c;
-	int		i;
-	int		j;
-	int		res;
-	
+	int res;
+	int i;
+	int j;
+	char c;
+
 	if (argc == 3)
 	{
 		i = 0;
@@ -32,9 +32,8 @@ int	main(int argc, char **argv)
 				res = 1;
 			i++;
 		}
-		c = res + '0';
+		c = res + 48;
 		write(1, &c, 1);
 	}
 	write(1, "\n", 1);
-	return (0);
 }
