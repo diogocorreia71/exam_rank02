@@ -24,7 +24,7 @@ void	ft_putnbr(int n)
 
 int	main(int argc, char **argv)
 {
-	if(!argv[1])
+	if (!argv[1])
 		return (write(1, "0\n", 2));
 	ft_putnbr(argc - 1);
 	write(1, "\n", 1);
