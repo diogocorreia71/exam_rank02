@@ -26,9 +26,9 @@ int	main(int argc, char **argv)
 		res = 0;
 		while (argv[2][i])
 		{
-			if(argv[2][i] == argv[1][j])
+			if (argv[2][i] == argv[1][j])
 				j++;
-			if(!argv[1][j])
+			if (!argv[1][j])
 				res = 1;
 			i++;
 		}
