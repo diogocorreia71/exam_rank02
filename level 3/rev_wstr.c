@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rev_wstr.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/01 14:48:09 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/08/01 15:23:53 by diodos-s         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	int	start;
-	int	end;
-	int	i;
-	int	flag;
-	
+	int i;
+	int start;
+	int end;
+	int flag;
+
 	i = 0;
 	if (argc == 2)
 	{
