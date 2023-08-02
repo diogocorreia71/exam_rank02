@@ -5,39 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 11:47:34 by diodos-s          #+#    #+#             */
-/*   Updated: 2023/06/21 11:58:07 by diodos-s         ###   ########.fr       */
+/*   Created: 2023/08/02 11:21:47 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/08/02 11:32:26 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	int	i;
-	int	j;
-	int	arr[256] = {0};
-	
-	if (argc == 3)
+	int i = 0;
+	int j = 0;
+	int tab[256] = {0};
+	if(argc == 3)
 	{
-		while (argv[1][i])
-		{
-			while (argv[2][j])
+		while(argv[1][i])
+		{	
+			j = 0;
+			while(argv[2][j])
 			{
-				if (argv[1][i] == argv[2][j])
+				if(argv[2][j] == argv[1][i])
 				{
-					if (arr[(int)argv[1][i]] == 0)
+					if(tab[(int)argv[1][i]] == 0)
 					{
-						write(1, &(argv[1][i]), 1);
-						arr[(int)argv[1][i]] = 1;
+						tab[(int)argv[1][i]] = 1;
+						write(1, &argv[2][j], 1);
 					}
 				}
 				j++;
 			}
-			j = 0;
 			i++;
 		}
 	}
-	write(1, "\n", 1);
+	write(1,"\n",1);
 	return (0);
 }
