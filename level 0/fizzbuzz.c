@@ -5,37 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 11:40:21 by diodos-s          #+#    #+#             */
-/*   Updated: 2023/06/19 11:53:05 by diodos-s         ###   ########.fr       */
+/*   Created: 2023/08/02 10:12:55 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/08/02 10:16:35 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	write_number(int i)
+void	ft_putnbr(int n)
 {
-	int	j;
-	
-	j = 0;
-	if (i > 9)
-	{
-		j = (i / 10) + 48;
-		write(1, &j, 1);
-		j = (i % 10) + 48;
-		write(1, &j, 1);
-	}
-	else
-	{
-		j = i + 48;
-		write(1, &j, 1);
-	}
+	char c;
+
+	if (n > 9)
+		ft_putnbr(n / 10);
+	c = n % 10 + 48;
+	write(1, &c, 1);
 }
 
-int	main(void)
+int main(void)
 {
-	int	i;
+	int i = 1;
 
-	i = 1;
 	while (i <= 100)
 	{
 		if (i % 3 == 0 && i % 5 == 0)
@@ -44,8 +34,8 @@ int	main(void)
 			write(1, "fizz", 4);
 		else if (i % 5 == 0)
 			write(1, "buzz", 4);
-		else 
-			write_number(i);
+		else
+			ft_putnbr(i);
 		write(1, "\n", 1);
 		i++;
 	}
