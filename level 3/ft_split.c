@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/04 09:20:06 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/08/04 10:28:20 by diodos-s         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 int			ft_isspace(char c)
@@ -68,4 +80,42 @@ char	**ft_split(char *str)
 	}
 	arr[i] = NULL;
 	return (arr);
+}
+
+
+// V 2.0
+
+#include <stdlib.h>
+
+char    **ft_split(char *str)
+{
+    char **split;
+    int i = 0;
+    int row = 0;
+    int column;
+
+    split = (char **)malloc(sizeof(char *) * 256);
+    if(!split)
+        return 0;
+    while (str[i] == ' ' || str[i] == '\t' || str[i] =='\n')
+        i++;
+    while(str[i] != '\0')
+    {
+        column = 0;
+        split[row] = malloc(sizeof(char) * 4000);
+        if(!split[row])
+            return 0;
+        while(str[i] != ' ' && str[i] != '\t' && str[i] !='\n' && str[i])
+        {
+            split[row][column] = str[i];
+            column++;
+            i++;
+        }
+        split[row][column] = '\0';
+        while (str[i] == ' ' || str[i] == '\t' || str[i] =='\n')
+            i++;
+        row++;
+    }
+    split[row] = NULL;
+    return(split);
 }
