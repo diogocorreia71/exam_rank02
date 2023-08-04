@@ -85,37 +85,37 @@ char	**ft_split(char *str)
 
 // V 2.0
 
-#include <stdlib.h>
+// #include <stdlib.h>
 
-char    **ft_split(char *str)
-{
-    char **split;
-    int i = 0;
-    int row = 0;
-    int column;
+// char    **ft_split(char *str)
+// {
+//     char **split;
+//     int i = 0;
+//     int row = 0;
+//     int column;
 
-    split = (char **)malloc(sizeof(char *) * 256);
-    if(!split)
-        return 0;
-    while (str[i] == ' ' || str[i] == '\t' || str[i] =='\n')
-        i++;
-    while(str[i] != '\0')
-    {
-        column = 0;
-        split[row] = malloc(sizeof(char) * 4000);
-        if(!split[row])
-            return 0;
-        while(str[i] != ' ' && str[i] != '\t' && str[i] !='\n' && str[i])
-        {
-            split[row][column] = str[i];
-            column++;
-            i++;
-        }
-        split[row][column] = '\0';
-        while (str[i] == ' ' || str[i] == '\t' || str[i] =='\n')
-            i++;
-        row++;
-    }
-    split[row] = NULL;
-    return(split);
-}
+//     split = (char **)malloc(sizeof(char *) * 256);
+//     if(!split)
+//         return 0;
+//     while (str[i] == ' ' || str[i] == '\t' || str[i] =='\n')
+//         i++;
+//     while(str[i] != '\0')
+//     {
+//         column = 0;
+//         split[row] = malloc(sizeof(char) * 4000);
+//         if(!split[row])
+//             return 0;
+//         while(str[i] != ' ' && str[i] != '\t' && str[i] !='\n' && str[i])
+//         {
+//             split[row][column] = str[i];
+//             column++;
+//             i++;
+//         }
+//         split[row][column] = '\0';
+//         while (str[i] == ' ' || str[i] == '\t' || str[i] =='\n')
+//             i++;
+//         row++;
+//     }
+//     split[row] = NULL;
+//     return(split);
+// }
