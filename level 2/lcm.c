@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 09:28:25 by diodos-s          #+#    #+#             */
-/*   Updated: 2023/06/23 09:41:55 by diodos-s         ###   ########.fr       */
+/*   Created: 2023/08/10 10:25:14 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/08/10 10:30:17 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	lcm(unsigned int a, unsigned int b)
+unsigned int    lcm(unsigned int a, unsigned int b)
 {
-	int	n;
+	int n;
 
 	if (a == 0 || b == 0)
 		return (0);
@@ -22,9 +22,8 @@ unsigned int	lcm(unsigned int a, unsigned int b)
 		n = b;
 	while (1)
 	{
-		if ((n % a == 0) && (n % b == 0))
+		if (n % a == 0 && n % b == 0)
 			return (n);
 		n++;
 	}
-	return (0);
 }
