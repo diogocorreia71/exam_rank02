@@ -5,21 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 10:31:00 by diodos-s          #+#    #+#             */
-/*   Updated: 2023/06/21 10:38:54 by diodos-s         ###   ########.fr       */
+/*   Created: 2023/08/10 10:20:19 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/08/10 10:23:34 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int	number;
-	int sign;
+	int res = 0;
+	int sign = 1;
 	
-	number = 0;
-	sign = 1;
-	while ((*str == '\n') || (*str == ' ') || (*str == '\t')
-				|| (*str == '\v') || (*str == '\f') || (*str == '\r'))
-			str++;
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v' || *str == '\f' || *str == '\r')
+		str++;
 	if (*str == '+')
 		str++;
 	else if (*str == '-')
@@ -29,10 +26,9 @@ int		ft_atoi(const char *str)
 	}
 	while (*str && *str >= '0' && *str <= '9')
 	{
-		number *= 10;
-		number += *str - '0';
+		res = res * 10 + *str - 48;
 		str++;
 	}
-	number *= sign;
-	return (number);
+	res *= sign;
+	return (res);
 }
