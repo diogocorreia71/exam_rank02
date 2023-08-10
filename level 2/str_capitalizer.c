@@ -5,52 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 10:58:45 by diodos-s          #+#    #+#             */
-/*   Updated: 2023/06/23 11:08:36 by diodos-s         ###   ########.fr       */
+/*   Created: 2023/08/10 09:00:06 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/08/10 10:00:41 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_tolower(char c)
-{
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
-}
-
-int	ft_toupper(char c)
+void ft_toupper(char c)
 {
 	if (c >= 'a' && c <= 'z')
 		c -= 32;
-	return (c);
+	write(1, &c, 1);
 }
 
-int	main(int argc, char **argv)
+void ft_tolower(char c)
 {
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	write(1, &c, 1);
+}
+
+int main(int argc, char **argv)
+{
+	int i;
+	int j;
+
 	if (argc > 1)
 	{
-		int i = 1;
-		int j;
-		char c;
-		while (argv[i])
+		j = 1;
+		while (argv[j])
 		{
-			j = 0;
-			while (argv[i][j])
+			i = 0;
+			while (argv[j][i])
 			{
-				if (argv[i][j] != ' ' && (argv[i][j-1] == ' ' || j == 0))
-				{
-					c = ft_toupper(argv[i][j]);
-					write(1, &c, 1);
-				}
+				if ((i == 0 || argv[j][i-1] == ' ') && argv[j][i] != ' ')
+					ft_toupper(argv[j][i]);
 				else
-				{
-					c = ft_tolower(argv[i][j]);
-					write(1, &c, 1);
-				}
-				j++;
+					ft_tolower(argv[j][i]);
+				i++;
 			}
-			i++;
+			j++;
 			write(1, "\n", 1);
 		}
 	}
