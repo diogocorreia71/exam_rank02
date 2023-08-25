@@ -17,7 +17,6 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 	int temp;
 	t_list *curr;
 	
-	temp = 0;
 	curr = lst;
 	while (lst->next)
 	{
