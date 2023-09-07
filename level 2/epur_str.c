@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 		int flag = 0;
 		while (argv[1][i])
 		{
-			while (argv[1][i] && (argv[1][i] == ' ' || argv[1][i] == '\t'))
+			while (argv[1][i] == ' ' || argv[1][i] == '\t')
 				i++;
 			if (argv[1][i] && flag)
 				write(1, " ", 1);
