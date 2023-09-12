@@ -44,3 +44,40 @@ int     *ft_rrange(int start, int end)
 	}
 	return (res);
 }
+
+//#include<stdio.h>
+// int main(int argc, char **argv)
+// {
+// 	int end;
+// 	int start;
+	
+// 	(void)argc;
+// 	start = atoi(argv[1]);
+// 	end = atoi(argv[2]);
+// 	int size = end - start;
+// 	if (size < 0)
+// 	{
+// 		size *= -1;
+// 	}
+// 	int *res = malloc(sizeof(int) * (size + 1));
+// 	if (!res)
+// 		return (0);
+// 	int i = -1;
+// 	res = ft_rrange(start, end);
+// 	while (++i <= size)
+// 		printf("res[%i] = %i\n", i, res[i]);
+// }
+
+// int	main()
+// {
+// 	int	i;
+// 	int *arr;
+
+// 	arr = ft_rrange(0, -3);
+// 	i = 0;
+// 	while (i < 4)
+// 	{
+// 		printf("%d\n", arr[i]);
+// 		i++;
+// 	}
+// }
